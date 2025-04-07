@@ -35,6 +35,12 @@ fun ScreamA(navController: NavController) {
             label = { Text("Ingresa un dato") }
         )
 
+        TextField(
+            value = texto,
+            onValueChange = { texto = it },
+            label = { Text("Ingresa un dato") }
+        )
+
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
