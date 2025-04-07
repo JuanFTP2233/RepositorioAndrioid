@@ -11,13 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.ejercicio.ui.theme.Diseño
 import com.example.ejercicio.ui.theme.EjercicioTheme
+import com.example.menus.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-           Diseño()
+            Navigation()
         }
     }
 }
