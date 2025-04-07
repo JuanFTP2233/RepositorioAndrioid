@@ -13,10 +13,9 @@ val datosGuardados = mutableStateListOf<String>()
 
 @Composable
 fun ScreamA(navController: NavController) {
-    var texto by remember { mutableStateOf("") }
-
-
-
+    var nombre by remember { mutableStateOf("") }
+    var correo by remember { mutableStateOf("") }
+    var cc by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -30,23 +29,36 @@ fun ScreamA(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         TextField(
-            value = texto,
-            onValueChange = { texto = it },
-            label = { Text("Ingresa un dato") }
+            value = nombre,
+            onValueChange = { nombre = it },
+            label = { Text("Nombre") }
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         TextField(
-            value = texto,
-            onValueChange = { texto = it },
-            label = { Text("Ingresa un dato") }
+            value = correo,
+            onValueChange = { correo = it },
+            label = { Text("Correo") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = cc,
+            onValueChange = { cc = it },
+            label = { Text("C.C.") }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
-            if (texto.isNotBlank()) {
-                datosGuardados.add(texto)
-                texto = ""
+            if (nombre.isNotBlank() && correo.isNotBlank() && cc.isNotBlank()) {
+                val dato = "Nombre: $nombre, Correo: $correo, C.C.: $cc"
+                datosGuardados.add(dato)
+                nombre = ""
+                correo = ""
+                cc = ""
             }
         }) {
             Text(text = "Guardar dato")
